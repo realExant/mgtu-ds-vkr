@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+	<title>ВКР по курсу «Data Science»</title>
+</head>
+
+<body>
+	<div class="container pt-3 col-6">
+		<main>
+			<a href="/"><button class="btn">На главную</button></a>
+			<h2 align="center">{{ title }}</h2>
+			<br>
+			<br>
+			<form action="" method="post">
+				<div class="mb-2 row">
+					<label for="density" class="col-sm-4 col-form-label">Плотность, кг/м3</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="density" name="density"
+							value="{{ params.get('density') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="elastic_modulus" class="col-sm-4 col-form-label">Модуль упругости, ГПа</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="elastic_modulus" name="elastic_modulus"
+							value="{{ params.get('elastic_modulus') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="amount_hardener" class="col-sm-4 col-form-label">Количество отвердителя, м.%</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="amount_hardener" name="amount_hardener"
+							name="density" value="{{ params.get('amount_hardener') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="content_epoxy_groups" class="col-sm-4 col-form-label">Содержание эпоксидных
+						групп,%_2</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="content_epoxy_groups" name="content_epoxy_groups"
+							value="{{ params.get('content_epoxy_groups') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="flash_point" class="col-sm-4 col-form-label">Температура вспышки, С_2</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="flash_point" name="flash_point" name="flash_point"
+							value="{{ params.get('flash_point') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="surface_dens" class="col-sm-4 col-form-label">Поверхностная плотность, г/м2</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="surface_dens" name="surface_dens"
+							value="{{ params.get('surface_dens') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="tensile_modulus" class="col-sm-4 col-form-label">Модуль упругости при растяжении,
+						ГПа</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="tensile_modulus" name="tensile_modulus"
+							value="{{ params.get('tensile_modulus') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="tensile_strength" class="col-sm-4 col-form-label">Прочность при растяжении, МПа</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="tensile_strength" name="tensile_strength"
+							value="{{ params.get('tensile_strength') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="resin_consumption" class="col-sm-4 col-form-label">Потребление смолы, г/м2</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="resin_consumption" name="resin_consumption"
+							value="{{ params.get('resin_consumption') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="patch_angle" class="col-sm-4 col-form-label">Угол нашивки, град</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="patch_angle" name="patch_angle"
+							value="{{ params.get('patch_angle') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="patch_pitch" class="col-sm-4 col-form-label">Шаг нашивки</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="patch_pitch" name="patch_pitch"
+							value="{{ params.get('patch_pitch') }}">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label for="patch_dens" class="col-sm-4 col-form-label">Плотность нашивки</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="patch_dens" name="patch_dens"
+							value="{{ params.get('patch_dens') }}">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Рекомендовать</button>
+			</form>
+
+			{% if predict %}
+			<!--<div class="mb-2 row">Входные переменные:</div>{{ inputs|safe }}-->
+
+			<div class="mb-2 row">
+				<label class="col-sm-4 col-form-label">Результат:</label>
+				<div class="col-sm-8"> {{ predict }} </div>
+			</div>
+
+			{% endif %}
+
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+				crossorigin="anonymous"></script>
+
+		</main>
+	</div>
+</body>
+
+</html>
